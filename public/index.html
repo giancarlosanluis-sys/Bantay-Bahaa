@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BantayBaha - Flood Monitoring System</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🌊 BantayBaha</h1>
+      <p class="subtitle">Barangay Creek Flood Advisory & Sensor Monitoring</p>
+    </header>
+
+    <section class="card current-status-card" id="statusCard">
+      <h2>Current Water Level</h2>
+      <div class="level-display">
+        <span id="currentLevel">--</span> <span class="unit">cm</span>
+      </div>
+      <div class="status-badge" id="statusBadge">Connecting...</div>
+      <p class="last-updated">Last update: <span id="lastUpdatedTime">--</span></p>
+    </section>
+
+    <section class="analytics-grid">
+      <div class="card stat-box">
+        <h3>Average Level</h3>
+        <p id="statAvg">-- cm</p>
+      </div>
+      <div class="card stat-box">
+        <h3>Min / Max</h3>
+        <p id="statMinMax">-- / -- cm</p>
+      </div>
+      <div class="card stat-box">
+        <h3>Current Trend</h3>
+        <p id="statTrend" class="trend-text">--</p>
+      </div>
+      <div class="card stat-box">
+        <h3>Readings breakdown</h3>
+        <p id="statBreakdown" class="small-text">N: 0 | A: 0 | D: 0</p>
+      </div>
+    </section>
+
+    <section class="card advisory-card">
+      <div class="advisory-header">
+        <h2>AI Public Advisory</h2>
+        <button id="generateAiBtn" class="btn-primary">Generate Advisory</button>
+      </div>
+      <div id="advisoryBox" class="advisory-content">
+        Click "Generate Advisory" to get the latest bilingual AI flood update based on sensor data.
+      </div>
+    </section>
+
+    <section class="card chart-card">
+      <h2>Water Level Trend (Recent Readings)</h2>
+      <div class="chart-container">
+        <canvas id="waterChart"></canvas>
+      </div>
+    </section>
+
+    <section class="card table-card">
+      <h2>Latest 10 Sensor Readings</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Sensor ID</th>
+              <th>Water Level (cm)</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="readingsTableBody">
+            <tr><td colspan="4" class="text-center">Loading sensor data...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
