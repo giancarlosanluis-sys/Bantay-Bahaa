@@ -13,6 +13,7 @@ function initChart() {
     data: {
       labels: [],
       datasets: [{
+      title: 'Water Level (cm)',
         label: 'Water Level (cm)',
         data: [],
         borderColor: '#1976d2',
